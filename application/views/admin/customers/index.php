@@ -39,7 +39,7 @@
       <table class="table table-bordered" id="customersTable" width="100%" cellspacing="0">
         <thead>
           <tr>
-            <th class="col-0">CI</th>
+            <th class="col-0">DNI</th>
             <th class="col-0">Nombre completo</th>
             <th class="col-0">Celular</th>
             <th class="col-0">Empresa</th>

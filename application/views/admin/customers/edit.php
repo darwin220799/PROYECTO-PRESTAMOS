@@ -14,7 +14,7 @@
     
     <div class="form-row">
       <div class="form-group col-md-3">
-        <label class="small mb-1" for="ci">Ingresar CI</label>
+        <label class="small mb-1" for="ci">Ingresar DNI</label>
         <input class="form-control" id="ci" type="text" name="ci" value="<?php echo set_value('ci', $this->input->post('ci') ? $this->input->post('ci') : $customer->ci); ?>">
       </div>
       <div class="form-group col-md-3">
@@ -52,7 +52,7 @@
         <input class="form-control" id="mobile" type="text" name="mobile" value="<?php echo set_value('mobile', $this->input->post('mobile') ? $this->input->post('mobile') : $customer->mobile); ?>">
       </div>
       <div class="form-group col-md-4">
-        <label class="small mb-1" for="phone">Ingresar Teléfono</label>
+        <label class="small mb-1" for="phone">Ingresar Correo</label>
         <input class="form-control" id="phone" type="text" name="phone" value="<?php echo set_value('phone', $this->input->post('phone') ? $this->input->post('phone') : $customer->phone); ?>">
       </div>
     </div>
@@ -63,7 +63,7 @@
         <input class="form-control" id="business_name" type="text" name="business_name" value="<?php echo set_value('business_name', $this->input->post('business_name') ? $this->input->post('business_name') : $customer->business_name); ?>">
       </div>
       <div class="form-group col-md-4">
-        <label class="small mb-1" for="nit">Ingresar NIT</label>
+        <label class="small mb-1" for="nit">Ingresar RUC</label>
         <input class="form-control" id="nit" type="text" name="nit" value="<?php echo set_value('nit', $this->input->post('nit') ? $this->input->post('nit') : $customer->nit); ?>">
       </div>
       <div class="form-group col-md-4">
