@@ -47,6 +47,7 @@
                       <?= $this->session->flashdata('msg_error') ?>
                       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
+                        <?php $this->session->unset_userdata('msg_error'); ?>
                       </button>
                     </div>
                   <?php endif ?>
@@ -55,6 +56,7 @@
                       <?php echo validation_errors(); ?>
                       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
+                        
                       </button>
                     </div>
                   <?php } ?>
