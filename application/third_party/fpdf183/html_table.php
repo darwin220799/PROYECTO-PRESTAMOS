@@ -282,11 +282,11 @@ function PutLink($URL, $txt)
 // encabezado
 function Header()
 {
-	$this->Image(FCPATH . 'assets/img/logo.png',17.5,10, 25, 14,'PNG',"");
+	$this->Image(FCPATH . 'assets/img/logo.png',17.5,10, 45, 14,'PNG',"");
 	$this->Image(FCPATH . 'assets/img/logoinv.png',170,10, 25, 14,'PNG',"");
 	$this->SetFont('Arial', 'I', 10);
 	$this->Cell(7);
-	$this->Cell(178.5, 14, 'ECOMSOFT - REPORTES', 1, 0, 'C');
+	$this->Cell(178.5, 14, 'CREDIMOTOS - REPORTES', 1, 0, 'C');
 	$this->Ln(20);
 }
 

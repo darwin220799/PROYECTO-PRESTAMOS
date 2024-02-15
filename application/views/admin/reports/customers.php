@@ -20,7 +20,7 @@
         <thead>
           <tr>
             <th>ID</th>
-            <th>CI</th>
+            <th>DNI</th>
             <th class="col-7">Cliente</th>
             <th>Acciones</th>
           </tr>

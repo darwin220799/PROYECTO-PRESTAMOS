@@ -225,7 +225,7 @@ class Reports extends CI_Controller
     <td width="100" height="30"><b>Cliente:</b></td><td width="600" height="30">' . $rc->customer_name . '</td>
     </tr>
     <tr>
-    <td width="100" height="30"><b>CI:</b></td><td width="400" height="30">' . $rc->ci .'</td><td width="100" height="30" style="background-color:white"><b>Moneda:</b></td><td width="100" height="30">' . $rc->name . ' (' . $rc->short_name . ')</td>
+    <td width="100" height="30"><b>DNI:</b></td><td width="400" height="30">' . $rc->ci .'</td><td width="100" height="30" style="background-color:white"><b>Moneda:</b></td><td width="100" height="30">' . $rc->name . ' (' . $rc->short_name . ')</td>
     </tr>
     <tr>
     <td width="100" height="30"><b>Crédito:</b></td><td width="400" height="30">' . $rc->credit_amount . '</td><td width="100" height="30"><b>Código:</b></td><td width="100" height="30">' . $rc->id . '</td>
@@ -248,7 +248,7 @@ class Reports extends CI_Controller
       $tableTab = "         ";
 
       $html1 = '<table border="1">';
-      $html1 .= $tableTab . '<tr><td width="50" height="30"><b>Cuota</b></td><td width="110" height="30"><b>Fecha pago</b></td><td width="110" height="30"><b>Cuota</b></td><td width="110" height="30"><b>Pagado</b></td><td width="110" height="30"><b>Recargo</b></td><td width="110" height="30"><b>Por pagar</b></td><td width="110" height="30"><b>Estado</b></td></tr>';
+      $html1 .= $tableTab . '<tr><td width="50" height="30"><b>Cuota</b></td><td width="110" height="30"><b>Fecha de pago</b></td><td width="110" height="30"><b>Monto Cuota</b></td><td width="110" height="30"><b>Pagado</b></td><td width="110" height="30"><b>Recargo</b></td><td width="110" height="30"><b>Por pagar</b></td><td width="110" height="30"><b>Estado</b></td></tr>';
 
       if ($LOAN_READ) {
         $loanItems = $this->reports_m->getReportLIAll($rc->id);

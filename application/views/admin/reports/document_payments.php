@@ -42,7 +42,7 @@
             <th class="col-1">ID</th>
             <th class="col-3">Cliente</th>
             <th class="col-3">Usuario</th>
-            <th class="col-1">$</th>
+            <th class="col-1">Moneda</th>
             <th class="col-2">Monto</th>
             <th class="col-2">Fecha</th>
             <th class="col-1">Acciones</th>

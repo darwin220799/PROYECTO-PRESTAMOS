@@ -60,7 +60,7 @@
                   <table id="table_content" border="1" class="table table-bordered">
                     <thead>
                       <tr class="active">
-                        <th>CI</th>
+                        <th>DNI</th>
                         <th>Cliente</th>
                         <th>$</th>
                         <th>Monto</th>
