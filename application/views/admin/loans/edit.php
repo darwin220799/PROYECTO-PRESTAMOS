@@ -72,6 +72,7 @@
           <option value="semanal">Semanal</option>
           <option value="quincenal" selected="selected">Quincenal</option>
           <option value="mensual">Mensual</option>
+          <option value="mensual">Semestral</option>
         </select>
       </div>
     </div>
@@ -130,9 +131,9 @@
         <table class="table table-bordered" id="quotas" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <th class="col-md-1 text-center">#</th>
+              <th class="col-md-1 text-center">Nro </th>
               <th class="col-md-5 text-center">Monto</th>
-              <th class="col-md-6 text-center">Fecha</th>
+              <th class="col-md-6 text-center">Fecha de pago</th>
             </tr>
           </thead>
           <tbody id="tbody">

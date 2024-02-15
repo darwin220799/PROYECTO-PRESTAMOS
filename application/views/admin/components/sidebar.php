@@ -64,7 +64,7 @@ $LEGAL_PROCESS_READ = $ci->permission_m->getAuthorization($this->session->userda
   <li class="nav-item">
     <a class="nav-link" href="<?php echo site_url('admin/payments'); ?>">
       <i class="fas fa-fw fa-money-bill"></i>
-      <span>Cobros</span></a>
+      <span>Pagos</span></a>
   </li>
   <?php if ($LEGAL_PROCESS_READ) : ?>
     <li class="nav-item">

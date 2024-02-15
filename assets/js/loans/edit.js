@@ -87,6 +87,8 @@ $(document).ready(function () {
       $('#num_fee').val(time * 4);
     } else if (payment.toLowerCase() == 'diario') {
       $('#num_fee').val(time * 30);
+    } else if (payment.toLowerCase() == 'semestral') {
+      $('#num_fee').val(time * 0.5);
     } else {
       $('#num_fee').val(0);
     }
