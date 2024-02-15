@@ -9,6 +9,7 @@
         <?= $this->session->flashdata('msg') ?>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
+          <?php $this->session->unset_userdata('msg'); ?>
         </button>
       </div>
     <?php endif ?>
@@ -45,7 +46,8 @@
                     <div class="row col-sm-12">
                       <?php if ($COIN_UPDATE) : ?>
                         <a href="<?php echo site_url('admin/coins/edit/' . $coin->id); ?>" class="btn btn-warning btn-circle btn-sm"><i class="fas fa-edit fa-sm" title="Editar"></i></a>
-                      <?php endif ?>
+                   
+                        <?php endif ?>
                     </div>
                   </div>
                 </td>
