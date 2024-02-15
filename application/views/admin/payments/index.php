@@ -44,7 +44,7 @@
           <tr>
             <th>DNI</th>
             <th class="col-5">Cliente</th>
-            <th>Prest. ID</th>
+            <!-- <th>Prest. ID</th> -->
             <th>N° Cuota</th>
             <th>M. Cancelado</th>
             <th class="col-2">Fecha Pago</th>

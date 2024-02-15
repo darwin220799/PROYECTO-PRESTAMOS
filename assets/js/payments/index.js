@@ -23,7 +23,7 @@ function loadData() {
             'columns': [
                 { data: 'ci'},
                 { data: 'name_cst'},
-                { data: 'loan_id'},
+               // { data: 'loan_id'},
                 { data: 'num_quota'},
                 { data: 'fee_amount'},
                 { data: 'pay_date'},
