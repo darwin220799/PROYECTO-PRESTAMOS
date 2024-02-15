@@ -1,5 +1,5 @@
 <div class="card shadow mb-4">
-    <div class="card-header py-3">Editar proceso</div>
+    <div class="card-header py-3">Editar cliente en lista</div>
     <div class="card-body">
         <?php if (validation_errors()) : ?>
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -24,7 +24,7 @@
 
         <div class="form-row">
             <div class="form-group col-12">
-                <label class="small mb-1" for="start_date">Fecha de inicio</label>
+                <label class="small mb-1" for="start_date">Inicio de Registro</label>
                 <input type="date" class="form-control" rows="10" name="start_date" value="<?= $legal_process->start_date ?? Date('Y-m-d') ?>" />
             </div>
         </div>

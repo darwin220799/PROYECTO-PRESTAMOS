@@ -1,8 +1,8 @@
 <div class="card shadow mb-4">
   <div class="card-header d-flex align-items-center justify-content-between py-3">
-    <h6 class="m-0 font-weight-bold text-primary">Procesos legales</h6>
+    <h6 class="m-0 font-weight-bold text-primary">Lista Negra</h6>
     <?php if($LEGAL_PROCESS_CREATE) : ?>
-    <a class="d-sm-inline-block btn btn-sm btn-primary shadow-sm" href="<?= site_url('admin/legalprocesses/create'); ?>"><i class="fas fa-plus-circle fa-sm"></i> Nuevo proceso legal</a>
+    <a class="d-sm-inline-block btn btn-sm btn-primary shadow-sm" href="<?= site_url('admin/legalprocesses/create'); ?>"><i class="fas fa-plus-circle fa-sm"></i> Añadir a Lista</a>
     <?php endif ?>
   </div>
   <div class="card-body">
@@ -28,7 +28,7 @@
           <tr>
             <th class="col-1">ID</th>
             <th class="col-5">Cliente</th>
-            <th class="col-3">Fecha de inicio</th>
+            <th class="col-3">Inicio de Registro</th>
             <th class="col-2">Acciones</th>
           </tr>
         </thead>

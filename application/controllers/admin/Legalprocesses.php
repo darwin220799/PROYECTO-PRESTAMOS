@@ -88,7 +88,7 @@ class Legalprocesses extends CI_Controller
         }
         // Registrar archivos en la base de datos
         $this->legalprocess_m->addFiles($files);
-        $this->session->set_flashdata('msg', 'Se creó el proceso correctamente');
+        $this->session->set_flashdata('msg', 'Se agregó correctamente el cliente al listado');
         redirect('/admin/legalprocesses');
       } else $this->session->set_flashdata('msg_error', 'Algo salió mal...');
     } else {
@@ -164,7 +164,7 @@ class Legalprocesses extends CI_Controller
         'start_date' => $this->input->post('start_date')
       ];
       if ($this->legalprocess_m->update($id, $data))
-        $this->session->set_flashdata('msg', 'Se creó el proceso correctamente');
+        $this->session->set_flashdata('msg', 'Se realizó el proceso correctamente');
       else
         $this->session->set_flashdata('msg_error', 'Ocurrió un error al realizar el proceso...');
       redirect("admin/legalprocesses/view/$id");
@@ -213,7 +213,7 @@ class Legalprocesses extends CI_Controller
     }
     // Eliminar registro
     if ($this->legalprocess_m->deleteById($id))
-      $this->session->set_flashdata('msg', 'Se eliminó el proceso legal');
+      $this->session->set_flashdata('msg', 'Se eliminó de la lista');
     else
       $this->session->set_flashdata('msg_error', 'Ocurrió un error al realizar el proceso...');
     redirect("admin/legalprocesses");

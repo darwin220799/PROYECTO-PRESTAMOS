@@ -9,12 +9,12 @@
 
 <div class="card shadow mb-4">
     <div class="card-header d-flex align-items-center justify-content-between py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Proceso legal</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Lista Negra</h6>
         <div class="btn-group">
             <div class="btn-group">
                 <a class="btn btn-secondary btn-sm shadow-sm" href="<?= site_url("admin/legalprocesses/edit/$legal_process->id")?>">Editar</a>
                 <?php $deleteUrl = site_url("admin/legalprocesses/delete/$legal_process->id") ?>
-                <button class="btn btn-danger btn-sm shadow-sm" onclick="deleteConfirmation('CONFIRMACIÓN', '¿Realmente desea eliminar este proceso legal?', '<?= $deleteUrl ?>')">Eliminar</a>
+                <button class="btn btn-danger btn-sm shadow-sm" onclick="deleteConfirmation('CONFIRMACIÓN', '¿Realmente desea eliminar de la lista?', '<?= $deleteUrl ?>')">Eliminar</a>
             </div>
         </div>
     </div>
