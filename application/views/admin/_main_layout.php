@@ -9,8 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>ECOMSOFT</title>
-	<link rel="shortcut icon" href="<?=site_url().'assets/img/logo.png'?>">
+    <title>CREDIMOTOS</title>
+	<link rel="shortcut icon" href="<?=site_url().'assets/img/favicon-32x32.png'?>">
     <!-- Custom fonts for this template--> 
     <link href="<?php echo site_url() ?>assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
