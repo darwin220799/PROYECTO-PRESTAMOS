@@ -52,7 +52,7 @@
     </div>
   </div>
 </div>
-<div class="card shadow mb-4">
+<!-- <div class="card shadow mb-4">
     <div class="card-header d-flex py-3 justify-content-between">
       <h6 class="m-0 font-weight-bold text-primary"><?php echo $this->session->userdata('first_name'). ' '.$this->session->userdata('last_name'); ?></h6>
       <div>
@@ -75,7 +75,7 @@
       <p class="text-center h5 mb-4">Total préstamos por tipo de moneda</p>
       <canvas id="grafica"></canvas>
     </div>
-</div>
+</div> -->
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/Chart.min.js"></script>
 <script>
