@@ -2815,6 +2815,8 @@ fieldset:disabled a.btn {
 .btn-outline-danger {
   color: #e74a3b;
   border-color: #e74a3b;
+  padding: 5px; /* Puedes ajustar el valor según tus preferencias */
+  white-space: nowrap;
 }
 
 .btn-outline-danger:hover {

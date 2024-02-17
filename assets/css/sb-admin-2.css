@@ -3057,7 +3057,9 @@ fieldset:disabled a.btn {
 
 .btn-outline-secondary {
   color: #858796;
-  border-color: #858796
+  border-color: #858796;
+  max-width: none;
+  width: 50%;
 }
 
 .btn-outline-secondary:hover {
@@ -3201,8 +3203,13 @@ fieldset:disabled a.btn {
 
 .btn-outline-danger {
   color: #e74a3b;
-  border-color: #e74a3b
+  border-color: #e74a3b;
+  display: inline-block; /* Permite que el ancho sea determinado por el contenido */
+  width: 50%; /* Ancho automático basado en el contenido */
+  max-width: none; /* Limita el ancho al 100% del contenedor padre */
 }
+
+
 
 .btn-outline-danger:hover {
   color: #fff;
