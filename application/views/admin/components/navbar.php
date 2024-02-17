@@ -7,11 +7,16 @@
 
   <!-- Topbar Search -->
   <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-    <div class="sidebar-brand-text mx-2 text-style">
-      <div class="text-style2">
+    <div class="input-group">
+      <!-- <input type="text" id="general-search" class="form-control bg-light border-0 small" readonly> -->
+      <div  id="general-search" class="text-style2">
         Sistema de Prestamos
+      </div> 
+      <div class="">
+        <!-- <button class="btn btn-primary" type="button">
+          <i class="fas fa-search fa-sm"></i>
+        </button> -->
       </div>
-      <!-- CREDIMOTOS -->
     </div>
 </div>
 
@@ -46,13 +51,13 @@
         <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $this->session->userdata('academic_degree'). ' ' . $this->session->userdata('first_name'). ' '.$this->session->userdata('last_name'); ?></span>
         <!-- <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60"> -->
         <!-- <img class="img-profile rounded-circle" src="https://cdn3.iconfinder.com/data/icons/cool-avatars-2/190/00-07-2-512.png"> -->
-        <?php
+        <?php 
         if($this->session->userdata('avatar') != null)
           $file =  site_url() .'assets/img/avatars/' . $this->session->userdata('avatar');
         else $file = site_url() .'assets/img/avatars/employee_default.png';
         ?>
         <img class="img-profile rounded-circle" src="<?php echo $file ?>">
-
+        
       </a>
       <!-- Dropdown - User Information -->
       <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
