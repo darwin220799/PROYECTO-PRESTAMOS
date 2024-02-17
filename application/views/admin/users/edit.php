@@ -32,8 +32,8 @@
         </div>
         <div class="form-row">
             <div class="form-group col-md-4">
-                <label class="small mb-1" for="email">Email</label>
-                <input class="form-control" id="email" type="email" name="email" value="<?= $user->email ?>" autocomplete="nope">
+                <label class="small mb-1" for="email">DNI</label>
+                <input class="form-control" id="email" type="text" name="email" value="<?= $user->email ?>" autocomplete="nope">
             </div>
             <div class="form-group col-md-4">
                 <label class="small mb-1" for="avatar">Avatar</label>

@@ -50,7 +50,7 @@
                             <p class="form-control"><?= $user->last_name ?></p>
                         </div>
                         <div class="form-group col-md-4">
-                            <label class="small mb-1">Email</label>
+                            <label class="small mb-1">DNI</label>
                             <p class="form-control"><?= $user->email ?></p>
                         </div>
                         <div class="form-group col-md-4">

@@ -3205,7 +3205,7 @@ fieldset:disabled a.btn {
   color: #e74a3b;
   border-color: #e74a3b;
   display: inline-block; /* Permite que el ancho sea determinado por el contenido */
-  width: 50%; /* Ancho automático basado en el contenido */
+  width: 100%; /* Ancho automático basado en el contenido */
   max-width: none; /* Limita el ancho al 100% del contenedor padre */
 }
 

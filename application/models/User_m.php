@@ -10,7 +10,7 @@ class User_m extends MY_Model
     'email' => array(
       'field' => 'email',
       'label' => 'Email',
-      'rules' => 'trim|required|valid_email|max_length[150]'
+      'rules' => 'trim|required|max_length[150]'
     ),
     'password' => array(
       'field' => 'password',
@@ -38,7 +38,7 @@ class User_m extends MY_Model
     'email' => array(
       'field' => 'email',
       'label' => 'Email',
-      'rules' => 'trim|required|valid_email|max_length[150]'
+      'rules' => 'trim|required|max_length[150]'
     ),
     'password' => array(
       'field' => 'password',
