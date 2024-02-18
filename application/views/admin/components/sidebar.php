@@ -10,10 +10,10 @@ $LEGAL_PROCESS_READ = $ci->permission_m->getAuthorization($this->session->userda
   <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
     <!-- <img class="page-logo" src="<?php echo base_url(); ?>assets/img/logo.png" alt="logo" /> -->
     <div class="sidebar-brand-text mx-2 text-style">
-      <div class="text-style2">
+      <!-- <div class="text-style2">
         Sistema de Prestamos
-      </div>
-      CREDIMOTOS
+      </div> -->
+     CREDIMOTOS PIURA
     </div>
   </a>
 
@@ -36,7 +36,7 @@ $LEGAL_PROCESS_READ = $ci->permission_m->getAuthorization($this->session->userda
       <span>Clientes</span></a>
   </li>
 
-  <?php
+  <!-- <?php
   $ci = &get_instance();
   if ($COIN_READ) :
   ?>
@@ -45,7 +45,7 @@ $LEGAL_PROCESS_READ = $ci->permission_m->getAuthorization($this->session->userda
         <i class="fas fa-fw fa-money-bill"></i>
         <span>Monedas</span></a>
     </li>
-  <?php endif ?>
+  <?php endif ?> -->
 
 
   <li class="nav-item">

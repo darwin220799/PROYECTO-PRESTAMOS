@@ -8,11 +8,14 @@
   <!-- Topbar Search -->
   <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
     <div class="input-group">
-      <input type="text" id="general-search" class="form-control bg-light border-0 small" placeholder="Buscar..." aria-label="Search" aria-describedby="basic-addon2">
+      <!-- <input type="text" id="general-search" class="form-control bg-light border-0 small" readonly> -->
+      <div  id="general-search" class="text-style2">
+        Sistema de Prestamos
+      </div> 
       <div class="">
-        <button class="btn btn-primary" type="button">
+        <!-- <button class="btn btn-primary" type="button">
           <i class="fas fa-search fa-sm"></i>
-        </button>
+        </button> -->
       </div>
     </div>
 </div>
