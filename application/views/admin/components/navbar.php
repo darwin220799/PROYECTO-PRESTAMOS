@@ -9,8 +9,8 @@
   <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
     <div class="input-group">
       <!-- <input type="text" id="general-search" class="form-control bg-light border-0 small" readonly> -->
-      <div  id="general-search" class="text-style2">
-        Sistema de Prestamos
+      <div  id="general-search" class="font-weight-bold text-primary">
+        SISTEMA DE PRESTAMOS
       </div> 
       <div class="">
         <!-- <button class="btn btn-primary" type="button">
