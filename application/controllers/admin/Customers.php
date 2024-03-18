@@ -91,7 +91,7 @@ class Customers extends CI_Controller
     }
     $this->form_validation->set_rules($this->customers_m->customer_rules_x);
     if ($this->form_validation->run()) {
-      $cst_data = $this->customers_m->array_from_post(['ci', 'first_name', 'last_name', 'gender', 'mobile', 'address', 'phone', 'business_name', 'nit', 'company', 'user_id']);
+      $cst_data = $this->customers_m->array_from_post(['ci', 'first_name', 'last_name', 'gender', 'mobile', 'address', 'phone', 'business_name', 'nit', 'company', 'user_id','tipo_cliente']);
       $isSuccessfull = FALSE;
       $cst_data['first_name'] = strtoupper($cst_data['first_name']);
       $cst_data['last_name'] = strtoupper($cst_data['last_name']);

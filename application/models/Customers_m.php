@@ -60,6 +60,7 @@ class Customers_m extends MY_Model implements IAuthor {
     $customer->nit = '';
     $customer->company = '';
     $customer->user_id = '';
+    $customer->tipo_cliente = 'normal';
     return $customer;
   }
 
@@ -73,7 +74,7 @@ class Customers_m extends MY_Model implements IAuthor {
       $this->db->where('c.user_id', $user_id);
     $data['recordsFiltered'] = $this->db->get()->row()->recordsFiltered??0;
 
-    $this->db->select("c.id, c.ci, c.first_name, c.last_name, c.mobile, c.company, c.loan_status, c.user_id");
+    $this->db->select("c.id, c.ci, c.first_name, c.last_name, c.mobile, c.company, c.tipo_cliente, c.loan_status, c.user_id");
     $this->db->from('customers c');
     $this->db->where("(c.ci LIKE '%$search%' OR CONCAT_WS(' ', c.first_name, c.last_name) LIKE '%$search%' OR
     c.company LIKE '%$search%' OR c.mobile LIKE '%$search%' OR c.loan_status LIKE '%$search%')");

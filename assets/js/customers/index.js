@@ -39,6 +39,44 @@ function loadData() {
                     </p>`;  
                     }
                 },
+
+                {   'cell': true,
+                render: function (data, type, row) {
+                    let statusVar, text;
+                    switch(row.tipo_cliente) {
+                        case 'perdida':
+                            statusVar = 'btn-outline-danger';
+                            text = 'Perdida';
+                            break;
+                        case 'cpp':
+                            statusVar = 'btn-outline-warning';
+                            text = 'CPP';
+                            break;
+                        case 'deficiente':
+                            statusVar = 'btn-outline-info';
+                            text = 'Deficiente';
+                            break;
+                        case 'dudoso':
+                            statusVar = 'btn-outline-secondary';
+                            text = 'Dudoso';
+                            break;
+                        case 'normal':
+                            statusVar = 'btn-outline-primary';
+                            text = 'Normal';
+                            break;
+                        default:
+                            statusVar = 'btn-outline-success';
+                            text = row.tipo_cliente;
+                            break;
+                    }
+                    return `
+                    <button type="button" class="btn btn-sm ${statusVar} status-check">
+                        ${text}
+                    </button>
+                    `;
+                }, 
+                sClass: 'text-center'
+                },
                 {
                     'cell': true,
                     render: function (data, type, row) {

@@ -45,6 +45,7 @@
             <th class="col-0">Nombre completo</th>
             <th class="col-0">Celular</th>
             <th class="col-0">Empresa</th>
+            <th class="col-0">Tipo de Cliente</th>
             <th class="col-0">Estado</th>
             <th class="col-0">Acciones</th>
           </tr>

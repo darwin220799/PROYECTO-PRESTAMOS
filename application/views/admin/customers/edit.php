@@ -70,10 +70,17 @@
         <label class="small mb-1" for="company">Ingresar empresa</label>
         <input class="form-control" id="company" type="text" name="company" value="<?php echo set_value('company', $this->input->post('company') ? $this->input->post('company') : $customer->company); ?>">
       </div>
+      <div class="form-group col-md-4">
+        <label class="small mb-1" for="tipo_cliente">Tipo de cliente</label>
+        <input class="form-control" readonly  id="tipo_cliente" type="text" name="tipo_cliente" value="<?php echo set_value('tipo_cliente', $this->input->post('tipo_cliente') ? $this->input->post('tipo_cliente') : $customer->tipo_cliente,'normal'); ?>">
+     </div>     
       <div class="form-group col-md-4" hidden >
         <input class="form-control"  hidden readonly=true  id="user_id" type="number" name="user_id" value="<?php echo set_value('user_id', $this->input->post('user_id') ? $this->input->post('user_id') : $customer->user_id); ?>">
       </div>
-    </div>
+                                                                                                          
+     </div>  
+
+      
     <div class="float-right">
       <a href="<?php echo site_url('admin/customers/'); ?>" class="btn btn-dark">Cancelar</a>
       <button class="btn btn-primary" type="submit">Guardar</button>
