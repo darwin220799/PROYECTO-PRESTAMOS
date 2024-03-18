@@ -55,6 +55,27 @@
         <input class="form-control" id="user_name" type="text" >
       </div>
     </div>
+
+<!-- AÑADIDO POR GUSTAVO 👇 -->
+<div class="form-row">
+  <div class="form-group col-6"> <!-- Cambio: col-6 -->
+    <label class="small mb-1" for="type_of_loan">Tipo de préstamo</label>
+    <select class="form-control" id="type_of_loan" name="type_of_loan">
+      <option value="vehicular" selected="selected">Crédito vehicular</option>
+      <option value="prendario">Crédito prendario</option>
+    </select>
+  </div>
+  <div class="form-group col-6"> <!-- Cambio: col-6 -->
+    <label class="small mb-1" for="object_description">Descripción del objeto</label>
+    <input class="form-control" type="text" id="object_description" name="object_description">
+  </div>
+</div>
+
+<!-- AÑADIDO POR GUSTAVO ☝ -->
+
+
+
+
     <div class="form-row">
       <div class="form-group col-12 col-md-4">
         <label class="small mb-1" for="credit_amount">Monto préstamo (capital)</label>
