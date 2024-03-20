@@ -79,31 +79,67 @@ $(document).ready(function () {
 
     let time = parseFloat($('#time').val()); // n meses
     let payment = $('#payment_m').val(); // mensual, quincenal, semanal, diario
+    let monto = parseFloat($('#credit_amount').val());
+    
+    let i = ($('#in_amount').val() / 100);
     if (payment.toLowerCase() == 'mensual') {
       $('#num_fee').val(time * 1);
+      let num_cuotas = $('#num_fee').val();
+      let I = Math.pow(1 + i,1/12) - 1;
+      let monto_total = I + monto;
+      let cuota = monto * (I / (1 - Math.pow(1 + I, -num_cuotas))*1);
+      $('#fee_amount').val(cuota.toFixed(2));
+      $('#valor_interes').val(I.toFixed(2));
+      $('#monto_total').val(monto_total.toFixed(2));
+      loadCuotasTimelime();
+      toastr["success"]("Procesado", 'CALCULAR');
     } else if (payment.toLowerCase() == 'quincenal') {
       $('#num_fee').val(time * 2);
+      let num_cuotas = $('#num_fee').val();
+      let I = Math.pow(1 + i,1/24) - 1;
+      let monto_total = I + monto;
+      let cuota = monto * (I / (1 - Math.pow(1 + I, -num_cuotas))*1);
+      $('#fee_amount').val(cuota.toFixed(2));
+      $('#valor_interes').val(I.toFixed(2));
+      $('#monto_total').val(monto_total.toFixed(2));
+      loadCuotasTimelime();
+      toastr["success"]("Procesado", 'CALCULAR');
     } else if (payment.toLowerCase() == 'semanal') {
       $('#num_fee').val(time * 4);
+      let num_cuotas = $('#num_fee').val();
+      let I = Math.pow(1 + i,1/52) - 1;
+      let monto_total = I + monto;
+      let cuota = monto * (I / (1 - Math.pow(1 + I, -num_cuotas))*1);
+      $('#fee_amount').val(cuota.toFixed(2));
+      $('#valor_interes').val(I.toFixed(2));
+      $('#monto_total').val(monto_total.toFixed(2));
+      loadCuotasTimelime();
+      toastr["success"]("Procesado", 'CALCULAR');
     } else if (payment.toLowerCase() == 'diario') {
-      $('#num_fee').val(time * 30);
+      $('#num_fee').val(time * 24);
+      let num_cuotas = $('#num_fee').val();
+      let I = Math.pow(1 + i,1/360) - 1;
+      let monto_total = I + monto;
+      let cuota = monto * (I / (1 - Math.pow(1 + I, -num_cuotas))*1);
+      $('#fee_amount').val(cuota.toFixed(2));
+      $('#valor_interes').val(I.toFixed(2));
+      $('#monto_total').val(monto_total.toFixed(2));
+      loadCuotasTimelime();
+      toastr["success"]("Procesado", 'CALCULAR');
     } else if (payment.toLowerCase() == 'semestral') {
       $('#num_fee').val(time * 0.5);
+      let num_cuotas = $('#num_fee').val();
+      let I = Math.pow(1 + i,1/2) - 1;
+      let monto_total = I + monto;
+      let cuota = monto * (I / (1 - Math.pow(1 + I, -num_cuotas))*1);
+      $('#fee_amount').val(cuota.toFixed(2));
+      $('#valor_interes').val(I.toFixed(2));
+      $('#monto_total').val(monto_total.toFixed(2));
+      loadCuotasTimelime();
+      toastr["success"]("Procesado", 'CALCULAR');
     } else {
       $('#num_fee').val(0);
     }
-    let monto = parseFloat($('#credit_amount').val());
-    let num_cuotas = $('#num_fee').val();
-    let i = ($('#in_amount').val() / 100);
-    let I = monto * i * time;
-    let monto_total = I + monto;
-    let cuota = monto_total / num_cuotas;
-
-    $('#fee_amount').val(cuota.toFixed(2));
-    $('#valor_interes').val(I.toFixed(2));
-    $('#monto_total').val(monto_total.toFixed(2));
-    loadCuotasTimelime();
-    toastr["success"]("Procesado", 'CALCULAR');
   });
 
   $("#loan_form").submit(function () {
@@ -206,4 +242,3 @@ async function loadCuotasTimelime() {
     tbody.innerHTML = content;
   }
 }
-

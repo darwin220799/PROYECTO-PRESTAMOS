@@ -154,14 +154,15 @@ class Loans extends CI_Controller
     } else if (strtolower($payment) == 'semanal') {
       $num_fee = $time * 4;
     } else if (strtolower($payment) == 'diario') {
-      $num_fee = $time * 30;
+      $num_fee = $time * 24;
     } else {
       $num_fee = 0;
     }
     $i = ($interest_amount / 100);
-    $I = $credit_amount * $i * $time;
+    $I = pow(1 + $i, 1/12)-1;
     $monto_total = $I + $credit_amount;
-    $cuota = round($monto_total / $num_fee, 2);
+    $cuota = $credit_amount * ($I / (1 - pow(1 + $I, -$num_quota)));
+
     if ($cuota == $input->post('fee_amount') && $num_fee == $input->post('num_fee')) {
       return true;
     } else {
