@@ -88,7 +88,7 @@ class Loans extends CI_Controller
 
       if ($this->form_validation->run() == TRUE) {
         // inicio fechas
-        $items = $this->getTimelime($this->input->post('num_fee'), $this->input->post('payment_m'), $this->input->post('fee_amount'), $this->input->post('date'));
+        $items = $this->getTimelime($this->input->post('num_fee'), $this->input->post('payment_m'), $this->input->post('fee_amount'), $this->input->post('date'),$this->input->post('type_of_loan'));
         // fin fechas
         $loan_data = $this->loans_m->array_from_post(['customer_id', 'credit_amount', 'interest_amount', 'num_fee', 'fee_amount', 'payment_m', 'coin_id', 'cash_register_id', 'date']);
         $guarantors_list = $this->input->post('guarantors');
@@ -142,41 +142,31 @@ class Loans extends CI_Controller
    */
   private function formValidation($input)
   {
-    $credit_amount = $input->post('credit_amount');
-    $payment = $input->post('payment_m');
-    $time = $input->post('time');
-    $interest_amount = $input->post('interest_amount');
-    $num_fee = 0;
-    if (strtolower($payment) == 'mensual') {
-      $num_fee = $time * 1;
-    } else if (strtolower($payment) == 'quincenal') {
-      $num_fee = $time * 2;
-    } else if (strtolower($payment) == 'semanal') {
-      $num_fee = $time * 4;
-    } else if (strtolower($payment) == 'diario') {
-      $num_fee = $time * 24;
-    } else {
-      $num_fee = 0;
-    }
-    $i = ($interest_amount / 100);
-    $I = pow(1 + $i, 1/12)-1;
-    $monto_total = $I + $credit_amount;
-    $cuota = $credit_amount * ($I / (1 - pow(1 + $I, -$num_quota)));
-
-    if ($cuota == $input->post('fee_amount') && $num_fee == $input->post('num_fee')) {
-      return true;
-    } else {
-      return false;
-    }
+      $credit_amount = $input->post('credit_amount');
+      $payment = $input->post('payment_m');
+      $time = $input->post('time');
+      $interest_amount = $input->post('interest_amount');
+      $monto_total= $input->post('monto_total');
+      $num_fee = $input->post('num_fee'); 
+      $i = ($interest_amount / 100);
+      $I = pow(1 + $i, 1/12)-1;     
+      $cuota = $input->post('fee_amount');
+      if ($cuota == $input->post('fee_amount') && $num_fee == $input->post('num_fee')) {
+          return true;
+      } else {
+          return false;
+      }
   }
+  
 
-  public function get_timeline($num_fee, $payment_m, $fee_amount, $date)
+
+  public function get_timeline($num_fee, $payment_m, $fee_amount, $date,$tipo_c)
   {
-    echo json_encode($this->getTimelime($num_fee, $payment_m, $fee_amount, $date));
+    echo json_encode($this->getTimelime($num_fee, $payment_m, $fee_amount, $date,$tipo_c));
   }
 
   
-  private function getTimelime($num_fee, $payment_m, $fee_amount, $date)
+  private function getTimelime($num_fee, $payment_m, $fee_amount, $date,$tipo_c)
   { 
       $items = [];
       $feriados = [
@@ -436,35 +426,38 @@ class Loans extends CI_Controller
   
           $num_quota = 1;
           foreach ($period as $date) {
-            $dayOfWeek = $date->format('N');
-        
-            // Ignora los domingos y feriados, pasa al siguiente día hábil
-            while ($dayOfWeek == 7 || in_array($date->format('Y-m-d'), $feriados)) {
-                $date->add(new DateInterval('P1D'));
-                $dayOfWeek = $date->format('N');
-            }
-        /* holaaaa muajaja*/
-            // Verifica si la fecha ya está presente en el arreglo antes de agregarla
-            $existingDates = array_column($items, 'date');
-        
-            // Asegura que se repita el proceso hasta encontrar un día hábil no existente
-            while (in_array($date->format('Y-m-d'), $existingDates)) {
-                $date->add(new DateInterval('P1D'));
-                $dayOfWeek = $date->format('N');
-                
-                // Ignora los domingos y feriados, pasa al siguiente día hábil
-                while ($dayOfWeek == 7 || in_array($date->format('Y-m-d'), $feriados)) {
-                    $date->add(new DateInterval('P1D'));
-                    $dayOfWeek = $date->format('N');
-                }
-            }
-        
-            $items[] = [
-                'date' => $date->format('Y-m-d'),
-                'num_quota' => $num_quota++,
-                'fee_amount' => $fee_amount
-            ];
-        }
+              $dayOfWeek = $date->format('N');
+              // Verificamos si $tipo_c es 'prendario' para ignorar domingos y feriados
+              if ($tipo_c == 'prendario') {
+                  // Ignora los domingos y feriados, pasa al siguiente día hábil
+                  while ($dayOfWeek == 7 || in_array($date->format('Y-m-d'), $feriados)) {
+                      $date->add(new DateInterval('P1D'));
+                      $dayOfWeek = $date->format('N');
+                  }
+              }
+              // Verifica si la fecha ya está presente en el arreglo antes de agregarla
+              $existingDates = array_column($items, 'date');
+              
+              // Asegura que se repita el proceso hasta encontrar un día hábil no existente
+              while (in_array($date->format('Y-m-d'), $existingDates)) {
+                  $date->add(new DateInterval('P1D'));
+                  $dayOfWeek = $date->format('N');
+                  
+                  // Ignora los domingos y feriados si $tipo_c es 'prendario', pasa al siguiente día hábil
+                  if ($tipo_c == 'prendario') {
+                      while ($dayOfWeek == 7 || in_array($date->format('Y-m-d'), $feriados)) {
+                          $date->add(new DateInterval('P1D'));
+                          $dayOfWeek = $date->format('N');
+                      }
+                  }
+              }
+              $items[] = [
+                  'date' => $date->format('Y-m-d'),
+                  'num_quota' => $num_quota++,
+                  'fee_amount' => $fee_amount
+              ];
+          }
+          
       }
   
       return $items;

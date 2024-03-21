@@ -86,10 +86,11 @@ $(document).ready(function () {
       $('#num_fee').val(time * 1);
       let num_cuotas = $('#num_fee').val();
       let I = Math.pow(1 + i,1/12) - 1;
-      let monto_total = I + monto;
+      
       let cuota = monto * (I / (1 - Math.pow(1 + I, -num_cuotas))*1);
+      let monto_total =  cuota*num_cuotas;
       $('#fee_amount').val(cuota.toFixed(2));
-      $('#valor_interes').val(I.toFixed(2));
+      $('#valor_interes').val(monto_total.toFixed(2)-monto);
       $('#monto_total').val(monto_total.toFixed(2));
       loadCuotasTimelime();
       toastr["success"]("Procesado", 'CALCULAR');
@@ -97,10 +98,11 @@ $(document).ready(function () {
       $('#num_fee').val(time * 2);
       let num_cuotas = $('#num_fee').val();
       let I = Math.pow(1 + i,1/24) - 1;
-      let monto_total = I + monto;
       let cuota = monto * (I / (1 - Math.pow(1 + I, -num_cuotas))*1);
+      let monto_total =  cuota*num_cuotas;
+      
       $('#fee_amount').val(cuota.toFixed(2));
-      $('#valor_interes').val(I.toFixed(2));
+      $('#valor_interes').val(monto_total.toFixed(2)-monto);
       $('#monto_total').val(monto_total.toFixed(2));
       loadCuotasTimelime();
       toastr["success"]("Procesado", 'CALCULAR');
@@ -108,21 +110,30 @@ $(document).ready(function () {
       $('#num_fee').val(time * 4);
       let num_cuotas = $('#num_fee').val();
       let I = Math.pow(1 + i,1/52) - 1;
-      let monto_total = I + monto;
+      
       let cuota = monto * (I / (1 - Math.pow(1 + I, -num_cuotas))*1);
+      let monto_total =  cuota*num_cuotas;
       $('#fee_amount').val(cuota.toFixed(2));
-      $('#valor_interes').val(I.toFixed(2));
+      $('#valor_interes').val(monto_total.toFixed(2)-monto);
       $('#monto_total').val(monto_total.toFixed(2));
       loadCuotasTimelime();
       toastr["success"]("Procesado", 'CALCULAR');
     } else if (payment.toLowerCase() == 'diario') {
-      $('#num_fee').val(time * 24);
+      let tipo_p= $('#type_of_loan').val();
+      
+      if(tipo_p=='prendario'){
+        $('#num_fee').val(time * 24);
+      }else{
+        $('#num_fee').val(time * 30);
+      }
+      
+      
       let num_cuotas = $('#num_fee').val();
       let I = Math.pow(1 + i,1/360) - 1;
-      let monto_total = I + monto;
       let cuota = monto * (I / (1 - Math.pow(1 + I, -num_cuotas))*1);
+      let monto_total =  cuota*num_cuotas;
       $('#fee_amount').val(cuota.toFixed(2));
-      $('#valor_interes').val(I.toFixed(2));
+      $('#valor_interes').val(monto_total.toFixed(2)-monto);
       $('#monto_total').val(monto_total.toFixed(2));
       loadCuotasTimelime();
       toastr["success"]("Procesado", 'CALCULAR');
@@ -130,10 +141,11 @@ $(document).ready(function () {
       $('#num_fee').val(time * 0.5);
       let num_cuotas = $('#num_fee').val();
       let I = Math.pow(1 + i,1/2) - 1;
-      let monto_total = I + monto;
+     
       let cuota = monto * (I / (1 - Math.pow(1 + I, -num_cuotas))*1);
+      let monto_total =  cuota*num_cuotas;
       $('#fee_amount').val(cuota.toFixed(2));
-      $('#valor_interes').val(I.toFixed(2));
+      $('#valor_interes').val(monto_total.toFixed(2)-monto);
       $('#monto_total').val(monto_total.toFixed(2));
       loadCuotasTimelime();
       toastr["success"]("Procesado", 'CALCULAR');
@@ -226,10 +238,11 @@ async function loadCuotasTimelime() {
   num_fee = document.getElementById('num_fee').value;
   payment_m = document.getElementById('payment_m').value;
   fee_amount = document.getElementById('fee_amount').value;
+  tipo_c= document.getElementById('type_of_loan').value;
   tbody = document.getElementById('tbody');
   date = document.getElementById('date').value;
   if (num_fee != null && payment_m != null && fee_amount != null) {
-    resQuery = await fetch(`${base_url}admin/loans/get_timeline/${num_fee}/${payment_m}/${fee_amount}/${date}`);
+    resQuery = await fetch(`${base_url}admin/loans/get_timeline/${num_fee}/${payment_m}/${fee_amount}/${date}/${tipo_c}`);
     const list = await resQuery.json();
     content = '';
     list.forEach(item => {
